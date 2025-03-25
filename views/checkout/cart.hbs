@@ -1,0 +1,29 @@
+<h1>Shopping Cart</h1>
+
+{{#if products.length}}
+  <div class="cart-container">
+    <div class="cart-items">
+      {{#each products}}
+        <div class="cart-item">
+          <img src="/img/products/{{this.img_url}}" alt="{{this.name}}" class="product-img">
+          <div class="item-details">
+            <h3>{{this.name}}</h3>
+            <div id="rating" data-rating="{{this.rating}}"></div>
+            <p class="price-value">$ {{this.price}}</p>
+          </div>
+          <a href="/remove-from-cart/{{this.id}}" class="remove-btn">Remove</a>
+        </div>
+      {{/each}}
+    </div>
+    
+    <div class="cart-summary">
+      <h2>Order Summary</h2>
+      <div class="checkout-btn">
+        <a href="/checkout">Proceed to Checkout</a>
+      </div>
+    </div>
+  </div>
+{{else}}
+  <p>Your cart is empty.</p>
+  <a href="/" class="continue-shopping">Continue Shopping</a>
+{{/if}}
